@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", system-ui, sans-serif;
+
+  /* Brand gradient: orange → pink → violet */
+  --color-brand-from: #f97316;
+  --color-brand-via: #ec4899;
+  --color-brand-to: #8b5cf6;
+}
+
+/* ─────────────────────────────────────────
+   Single source-of-truth brand gradient
+   Used by: logo text, hero heading, buttons
+   ───────────────────────────────────────── */
+:root {
+  --brand-gradient: linear-gradient(
+    to right,
+    #f97316,
+    #ec4899,
+    #8b5cf6
+  );
+}
+
+/* ─── Reset ─────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", system-ui, sans-serif;
+  background: #ffffff;
+  color: #111827;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  width: 100%;
+  min-height: 100svh;
+}
+
+/* ─── Brand gradient utility classes ───── */
+.brand-gradient-text {
+  background: var(--brand-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.brand-gradient-bg {
+  background: var(--brand-gradient);
+}
+
+/* ─── React-Toastify override ───────────── */
+.Toastify__toast {
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 14px;
+  border-radius: 10px;
+}
